@@ -14,7 +14,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  x, y, z = [a, b, c].sort
+  raise TriangleError, "Impossible triangle" if z < 0
+  raise TriangleError if x + y <= z
+
+  return :equilateral if a == b and b == c
+  return :scalene if a != b and b != c and a != c
+  return :isosceles
 end
 
 # Error class used in part 2.  No need to change this code.
